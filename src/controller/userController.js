@@ -39,6 +39,34 @@ class userController {
       data: newUser.value,
     });
   }
+   //SignIn
+   static signIn(req,res){
+        
+    const { email, password} = req.body;
+     const foundUser = userModel.find(user => user.email === email);
+     if(foundUser){
+         const verifyPassword = bcryptjs.compareSync(req.body.password, foundUser.password);
+         if(verifyPassword){
+             const jwToken = jwt.sign({ id: foundUser.id, firstName: foundUser.firstName, lastName: foundUser.lastName, email:foundUser.email, address:foundUser.address, bio:foundUser.bio, occupation:foundUser.occupation, expertise:foundUser.expertise, userType:foundUser.userType, }, process.env.SECRET_KEY, {expiresIn: '1 day'});
+            return res.status(200).json({
+                status: 200,
+                message: `Logged in as ${foundUser.firstName}`,
+                data: {
+                    firstName:foundUser.firstName,lastName:foundUser.lastName,email:foundUser.email, address:foundUser.address,bio:foundUser.bio,occupation:foundUser.occupation,expertise:foundUser.expertise,userType:foundUser.userType
+                },
+               token: jwToken          
+            });
+         }
+         return res.status(404).json({
+            status: 404,
+            error: 'UserName or password not match.'
+        });
+    }
+    return res.status(404).json({
+        status: 404,
+        error: 'User not found'
+    });
+ }
 }
 
 export default userController;
