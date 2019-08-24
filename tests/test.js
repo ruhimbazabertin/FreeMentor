@@ -292,7 +292,7 @@ chai.request(server)
      })
       done();
       })
- //you can not accept a request if you are not a mentor
+//you can not accept a request if you are not a mentor
   it('should not accept a request if you are not a mentor', (done)=>{
     chai.request(server)
     .patch('/api/v1/auth/sessions/2/accept')
@@ -302,5 +302,37 @@ chai.request(server)
         res.body.message.should.be.equal('Unauthorized');
     })
     done();
-})     
+}) 
+  //mentor can decline a request from user
+  it('should decline the request from user',(done)=>{
+    chai.request(server)
+    .patch('/api/v1/auth/sessions/1/reject')
+    .set('Authorization', mentorToken)
+    .end((error, res)=>{
+        res.body.status.should.be.equal(200);
+    })
+    done();
+})
+//mentor can not decline a request which does not exist
+ it('should not decline a request which does not exist', (done)=>{
+  chai.request(server)
+      .patch('/api/v1/auth/sessions/10/reject')
+      .set('Authorization', mentorToken)
+      .end((error, res)=>{
+     res.body.status.should.be.equal(404);
+     res.body.error.should.be.equal('Session request not found');
+     })
+      done();
+     })
+ //You can not decline a request if you are not a mentor
+ it('should not decline a request from user if you are not a mentor', (done)=>{
+     chai.request(server)
+     .patch('/api/v1/auth/sessions/1/reject')
+     .set('Authorization', userToken)
+     .end((error, res)=>{
+         res.body.status.should.be.equal(403);
+         res.body.message.should.be.equal('Unauthorized');
+     })
+     done();
+ })        
 });

@@ -14,5 +14,6 @@ route.patch('/api/v1/auth/user/:id', auth, userController.changeToMentor);
 route.get('/api/v1/auth/mentors', auth, userController.viewMentors);
 route.post('/api/v1/auth/sessions', auth, sessionController.createSession);
 route.patch('/api/v1/auth/sessions/:sessionId/accept', auth, sessionController.acceptSession);
+route.patch('/api/v1/auth/sessions/:sessionId/reject', auth, sessionController.declineSession);
 
 export default route;
