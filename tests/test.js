@@ -9,7 +9,7 @@ chai.should();
 // eslint-disable-next-line no-undef
 describe('FreeMentor product', () =>{ 
     let adminToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3ROYW1lIjoiS2FtYmFuZGEiLCJsYXN0TmFtZSI6ImF1Z3N0aW4iLCJlbWFpbCI6ImFseXlAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoiYWRtaW4iLCJpYXQiOjE1NjY2NDcxMjB9.w4zH-gxxq1coJt2UeLxfyqIXPlBpZlk6Nft9iBfCtas';
-    let userToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3ROYW1lIjoiS2FtYmFuZGEiLCJsYXN0TmFtZSI6ImF1Z3N0aW4iLCJlbWFpbCI6ImFseXlAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjY1MDc0OH0.UyntCSA3bI1eGdc2RKb7_qeM1k3W1h9UGfyB2a86a7Y';
+    let userToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3ROYW1lIjoiS2FtYmFuZGEiLCJsYXN0TmFtZSI6ImF1Z3N0aW4iLCJlbWFpbCI6ImFseUBnbWFpbC5jb20iLCJhZGRyZXNzIjoia2lnYWxpIiwiYmlvIjoic2NpZW50aXN0Iiwib2NjdXBhdGlvbiI6InNvZnR3YXJlIGRldmVsb3BtZW50IiwiZXhwZXJ0aXNlIjoic29zdHdhcmUgYXJjaGl0ZWN0dXJlIiwidXNlclR5cGUiOiJ1c2VyIiwiaWF0IjoxNTY2NjYxODUxfQ.a1rvSihaENzqH5ctfayjhlk2EHVh1YH3szlvRldYp-w';
     let mentorToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3ROYW1lIjoibmdhcmFtYmUiLCJsYXN0TmFtZSI6ImFudG9pbmV0dGUiLCJlbWFpbCI6ImFudG9pbmV0dGVAZ21haWwuY29tIiwiYWRkcmVzcyI6ImxlZ29zIiwiYmlvIjoic29tZXRoaW5nIiwib2NjdXBhdGlvbiI6Im1haW50ZW5hbmNlIiwiZXhwZXJ0aXNlIjoibWFpbnRhaW5uaW5nIHN5c3RlbXMiLCJ1c2VyVHlwZSI6Im1lbnRvciIsImlhdCI6MTU2NjY1MTMwOCwiZXhwIjoxNTY2NzM3NzA4fQ.hBxB3wFkNAqpGLv2h8HKG68bZ2HPXzBVw_rqujg_9d8';
     let wrongToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoicnVoaW1iYXphIiwibGFzdE5hbWUiOiJCZXJ0aW4iLCJlbWFpbCI6InJ1aGltYmF6YWJAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjU4NDI5NCwiZXhwIjoxNTY2NjcwNjk0fQ._d1DusgifybBhXNLt8U5f9edciu8_YPdwcCozfXIBhobertin';
   it('should be signup', (done) => {
@@ -205,4 +205,69 @@ it('Should be able to find all mentors available',(done)=>{
            })
            done();
      });
+     //user can create request session to mentor
+  it('should request session to mentor', (done)=>{
+    const user = 
+    {
+        "mentorId": 2,
+        "questions": "Is java high in demand?"
+    }
+    chai.request(server)
+    .post('/api/v1/auth/sessions')
+    .set('Authorization', userToken)
+    .send(user)
+    .end((error, res)=>{
+        res.body.status.should.be.equal(200);
+       // res.body.should.be.an('object');
+    })
+    done();
+ })
+      //user can not send a request if there is something went wrong in user's input
+      it('should not send a request if there is something went wrong in user input', (done)=>{
+        const user = 
+        {
+            "mentorId": 2,
+            "questions": 12345,
+        }
+        chai.request(server)
+        .post('/api/v1/auth/sessions')
+        .set('Authorization', userToken)
+        .send(user)
+        .end((error, res)=>{
+            res.body.status.should.be.equal(400);
+        })
+        done();
+     })
+ //User can not sent a request session to a mentor if there is no mantor found
+  it('Should not sent a request session to a mentor if mentor does not exist', (done)=>{
+   const user = 
+   {
+       "mentorId": -2,
+       "questions": "Is java high in demand?"
+   }
+      chai.request(server)
+      .post('/api/v1/auth/sessions')
+      .set('Authorization', userToken)
+      .end((error, res)=>{
+          res.body.status.should.be.equal(404);
+          res.body.error.should.be.equal('Mentor not found');
+      })
+      done();
+  })
+  //You can not sent a request session to a mentor if you are not a user
+  it('Should not create a request session to a mentor if you are not a user', (done)=>{
+   const user = 
+   {
+       "mentorId": 2,
+       "questions": "Is java high in demand?"
+   }
+      chai.request(server)
+      .post('/api/v1/auth/sessions')
+      .set('Authorization', mentorToken)
+      .end((error, res)=>{
+          res.body.status.should.be.equal(403);
+          res.body.message.should.be.equal('Unauthorized');
+      })
+      done();
+  })
 });
