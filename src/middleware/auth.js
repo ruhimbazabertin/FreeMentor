@@ -6,16 +6,12 @@ const auth = (req, res, next) => {
     const bearer = bearerHeader.split(' ');
     const bearerToken = bearer[1];
     req.token = bearerToken;
-    // eslint-disable-next-line consistent-return
     jwt.verify(req.token, process.env.SECRET_KEY, (error, data) => {
       if (error) {
-        // throw new Error(`Authentication failed ${error}`);
-        return res.status(401).json({
-          status: 401,
-          error: `Authentication failed ${error}`,
-        });
+        throw new Error(`Authentication failed ${error}`);
+      } else {
+        req.user = data;
       }
-      req.user = data;
     });
     next();
   }

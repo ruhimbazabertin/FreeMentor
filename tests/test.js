@@ -7,12 +7,11 @@ chai.use(chaiHttp);
 chai.should();
 
 // eslint-disable-next-line no-undef
-describe('FreeMentor product', () => {
-    let emptToken = 'bertin';
-    let adminToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3ROYW1lIjoiVGV0YSIsImxhc3ROYW1lIjoiQmVsbHlzZSIsImVtYWlsIjoiYmVsbHlzZWFkQGdtYWlsLmNvbSIsImFkZHJlc3MiOiJraWdhbGkiLCJiaW8iOiJzY2llbnRpc3QiLCJvY2N1cGF0aW9uIjoic29mdHdhcmUgZGV2ZWxvcG1lbnQiLCJleHBlcnRpc2UiOiJzb3N0d2FyZSBhcmNoaXRlY3R1cmUiLCJ1c2VyVHlwZSI6ImFkbWluIiwiaWF0IjoxNTY2NDA0MjQ1fQ.pm67X0E1Ls-Nh4eR--44ITZ1xx2EneGOUI88e0MHbXc';
-    let userToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoicnVoaW1iYXphIiwibGFzdE5hbWUiOiJCZXJ0aW4iLCJlbWFpbCI6InJ1aGltYmF6YWJAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjU4NDI5NCwiZXhwIjoxNTY2NjcwNjk0fQ._d1DusgifybBhXNLt8U5f9edciu8_YPdwcCozfXIBho';
-    let mentorToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZmlyc3ROYW1lIjoiYWhpc2hha2l5ZSIsImxhc3ROYW1lIjoiYWxpbmUiLCJlbWFpbCI6ImFsaW5lQGdtYWlsLmNvbSIsImFkZHJlc3MiOiJOYWlyb2JpIiwiYmlvIjoicmVzZWFyY2hlciIsIm9jY3VwYXRpb24iOiJhZHZvY2FjeSIsImV4cGVydGlzZSI6InRlYWNoaW5nIiwidXNlclR5cGUiOiJtZW50b3IiLCJpYXQiOjE1NjY1ODMyODksImV4cCI6MTU2NjY2OTY4OX0.yr8aZ32IHcfCE85GL2bqVaxeFCDcakRrDm5j9Gx_n04';
-    let wrongToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoicnVoaW1iYXphIiwibGFzdE5hbWUiOiJCZXJ0aW4iLCJlbWFpbCI6InJ1aGltYmF6YWJAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjU4NDI5NCwiZXhwIjoxNTY2NjcwNjk0fQ._d1DusgifybBhXNLt8U5f9edciu8_YPdwcCozfXIBhobertin'
+describe('FreeMentor product', () =>{ 
+    let adminToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3ROYW1lIjoiS2FtYmFuZGEiLCJsYXN0TmFtZSI6ImF1Z3N0aW4iLCJlbWFpbCI6ImFseXlAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoiYWRtaW4iLCJpYXQiOjE1NjY2NDcxMjB9.w4zH-gxxq1coJt2UeLxfyqIXPlBpZlk6Nft9iBfCtas';
+    let userToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3ROYW1lIjoiS2FtYmFuZGEiLCJsYXN0TmFtZSI6ImF1Z3N0aW4iLCJlbWFpbCI6ImFseXlAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjY1MDc0OH0.UyntCSA3bI1eGdc2RKb7_qeM1k3W1h9UGfyB2a86a7Y';
+    let mentorToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZmlyc3ROYW1lIjoibmdhcmFtYmUiLCJsYXN0TmFtZSI6ImFudG9pbmV0dGUiLCJlbWFpbCI6ImFudG9pbmV0dGVAZ21haWwuY29tIiwiYWRkcmVzcyI6ImxlZ29zIiwiYmlvIjoic29tZXRoaW5nIiwib2NjdXBhdGlvbiI6Im1haW50ZW5hbmNlIiwiZXhwZXJ0aXNlIjoibWFpbnRhaW5uaW5nIHN5c3RlbXMiLCJ1c2VyVHlwZSI6Im1lbnRvciIsImlhdCI6MTU2NjY1MTMwOCwiZXhwIjoxNTY2NzM3NzA4fQ.hBxB3wFkNAqpGLv2h8HKG68bZ2HPXzBVw_rqujg_9d8';
+    let wrongToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoicnVoaW1iYXphIiwibGFzdE5hbWUiOiJCZXJ0aW4iLCJlbWFpbCI6InJ1aGltYmF6YWJAZ21haWwuY29tIiwiYWRkcmVzcyI6ImtpZ2FsaSIsImJpbyI6InNjaWVudGlzdCIsIm9jY3VwYXRpb24iOiJzb2Z0d2FyZSBkZXZlbG9wbWVudCIsImV4cGVydGlzZSI6InNvc3R3YXJlIGFyY2hpdGVjdHVyZSIsInVzZXJUeXBlIjoidXNlciIsImlhdCI6MTU2NjU4NDI5NCwiZXhwIjoxNTY2NjcwNjk0fQ._d1DusgifybBhXNLt8U5f9edciu8_YPdwcCozfXIBhobertin';
   it('should be signup', (done) => {
     const user = {
       firstName: 'kabera',
@@ -148,18 +147,40 @@ const user =
         .set('Authorization', mentorToken)
         .end((error, res)=>{
             res.body.status.should.be.equal(403);
-            res.body.error.should.be.equal('Unauthorized');
         })
         done();
        });
-       //auth testing for wrong token
-       it('should be not able to authenticate', (done)=>{
-        chai.request(server)
-        .get('/api/v1/auth/mentors/2')
-        .set('Authorization', wrongToken)
-        .end((error, res)=>{
-            res.body.status.should.be.equal(401);
-        })
-        done();
-       });
+    //admin should change user to mentor  
+   it('admin should change user to mentor', (done)=>{
+    chai.request(server)   
+    .patch('/api/v1/auth/user/1')
+    .set( 'Authorization', adminToken)
+    .end((error, res)=>{
+     res.body.status.should.be.equal(200);
+     
+ })
+ done();
+});
+ //admin should not change a user to a mentor if he/she is not available
+it('should not change user to a mentor if user is not available',(done)=>{
+    chai.request(server)
+    .patch('/api/v1/auth/user/50')
+    .set('Authorization', adminToken)
+    .end((error, res)=>{
+        res.body.status.should.be.equal(404);
+        res.body.error.should.be.equal('User not found or may be is a mentor');
+    })
+    done();
+});
+//You can not change a user to mentor, if you are not admin
+it('You can not change a user to mentor, if you are not admin', (done)=>{
+    chai.request(server)
+    .patch('/api/v1/auth/user/1')
+    .set('Authorization', mentorToken)
+    .end((error, res)=>{
+        res.body.status.should.be.equal(403);
+        res.body.message.should.be.equal('Unauthorize');
+    })
+    done();
+})
 });

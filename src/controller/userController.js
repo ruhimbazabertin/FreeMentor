@@ -88,7 +88,45 @@ class userController {
         status: 403,
         error: 'Unauthorized'
     });
-     }
+     }  
+     //Change user to mentor
+     static changeToMentor(req, res){
+        if(req.user.userType === 'admin'){
+           
+       const { id } = req.params;
+      const findUser = userModel.find(user => user.id === parseInt(id) && user.userType === 'user');
+      if(findUser){
+          const updateUser={
+           id: findUser.id,
+           firstName: findUser.firstName,
+           lastName: findUser.lastName,
+           email: findUser.email,
+           passsword: findUser.password,
+           address: findUser.address,
+           bio: findUser.bio,
+           occupation: findUser.occupation,
+           expertise: findUser.expertise,
+           userType: 'mentor'
+          };
+          
+          userModel[userModel.indexOf(findUser)] = updateUser;
+          return res.status(200).json({
+              status: 200,
+              data: updateUser,
+              
+          })
+      }
+      return res.status(404).json({
+       status: 404,
+       error: 'User not found or may be is a mentor'
+   });
+  }
+ return res.status(403).json({
+ status: 403,
+ message: 'Unauthorize'
+});
+    }
+   
 }
 
 export default userController;
