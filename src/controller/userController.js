@@ -67,6 +67,28 @@ class userController {
         error: 'User not found'
     });
  }
+     //View a specific mentor
+      static specificMentor(req, res){
+        if(req.user.userType === 'user'){
+        const { id } = req.params;
+        const foundUser = userModel.find(user => user.id === parseInt(id) && user.userType === 'mentor' );
+        if(foundUser){
+           return res.status(200).json({
+            status: 200,
+            data: foundUser
+             
+           })
+        }
+        return res.status(404).json({
+            status: 404,
+            error: 'Mentor not found'
+        });
+    }
+    return res.status(403).json({
+        status: 403,
+        error: 'Unauthorized'
+    });
+     }
 }
 
 export default userController;
