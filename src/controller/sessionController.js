@@ -40,6 +40,7 @@ class sessionController {
   static acceptSession(req, res) {
     if (req.user.userType === 'mentor') {
       const { sessionId } = req.params;
+      // eslint-disable-next-line radix
       const findSession = sessionModel.find(session => session.sessionId === parseInt(sessionId));
       if (findSession) {
         const statusChangedTo = 'Accepted';
@@ -55,6 +56,39 @@ class sessionController {
         return res.status(200).json({
           status: 200,
           data: SessionResponse,
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        error: 'Session request not found',
+      });
+    }
+    return res.status(403).json({
+      status: 403,
+      message: 'Unauthorized',
+    });
+  }
+
+  static declineSession(req, res) {
+    if (req.user.userType === 'mentor') {
+      const { sessionId } = req.params;
+      // eslint-disable-next-line radix
+      const findSession = sessionModel.find(session => session.sessionId === parseInt(sessionId));
+      if (findSession) {
+        const changeStatusTo = 'rejected';
+        const updateSession = {
+          sessionId: findSession.sessionId,
+          mentorId: findSession.mentorId,
+          menteeId: req.user.id,
+          questions: findSession.questions,
+          menteeEmail: req.user.email,
+          status: changeStatusTo,
+
+        };
+        sessionModel[sessionModel.indexOf(findSession)] = updateSession;
+        return res.status(200).json({
+          status: 200,
+          data: updateSession,
         });
       }
       return res.status(404).json({
