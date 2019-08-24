@@ -126,6 +126,20 @@ class userController {
  message: 'Unauthorize'
 });
     }
+  //all mentors
+  static viewMentors(req, res){
+  if(req.user.userType === 'user' || req.user.userType === 'admin'){
+  const allMenotrs = userModel.filter(mentor => mentor.userType === 'mentor'); 
+     return res.status(200).json({
+          status: 200,
+          data: allMenotrs,           
+        })  
+        }
+        return res.status('403').json({
+            status: 403,
+            message: 'Aunauthorized'
+        })
+       }
    
 }
 

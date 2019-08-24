@@ -183,4 +183,26 @@ it('You can not change a user to mentor, if you are not admin', (done)=>{
     })
     done();
 })
+//admin or user can view all Mentors available
+it('Should be able to find all mentors available',(done)=>{
+    chai.request(server)
+    .get('/api/v1/auth/mentors')
+    .set('Authorization', userToken)
+    .end((error, res)=>{
+        res.body.status.should.be.equal(200);
+        res.body.should.be.an('object');
+    })
+    done();
+  });
+   // You can not view all mentors if you not admin or user
+    it('should not view all mentors if you not authorized', (done)=>{
+         chai.request(server)
+           .get('/api/v1/auth/mentors')
+           .set('Authorization', mentorToken)
+           .end((error, res)=>{
+               res.body.status.should.be.equal(403);
+               res.body.message.should.be.equal('Aunauthorized');
+           })
+           done();
+     });
 });
