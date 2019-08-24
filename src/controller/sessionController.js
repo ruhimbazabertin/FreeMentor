@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import sessionModel from '../model/session';
@@ -28,6 +29,37 @@ class sessionController {
       return res.status(404).json({
         status: 404,
         error: 'Mentor not found',
+      });
+    }
+    return res.status(403).json({
+      status: 403,
+      message: 'Unauthorized',
+    });
+  }
+
+  static acceptSession(req, res) {
+    if (req.user.userType === 'mentor') {
+      const { sessionId } = req.params;
+      const findSession = sessionModel.find(session => session.sessionId === parseInt(sessionId));
+      if (findSession) {
+        const statusChangedTo = 'Accepted';
+        const SessionResponse = {
+          sessionId: findSession.sessionId,
+          mentorId: findSession.mentorId,
+          menteeId: req.user.id,
+          questions: findSession.questions,
+          menteeEmail: req.user.email,
+          status: statusChangedTo,
+        };
+        sessionModel[sessionModel.indexOf(findSession)] = SessionResponse;
+        return res.status(200).json({
+          status: 200,
+          data: SessionResponse,
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        error: 'Session request not found',
       });
     }
     return res.status(403).json({

@@ -270,4 +270,37 @@ it('Should be able to find all mentors available',(done)=>{
       })
       done();
   })
+  //mentor can accept a request session from user
+  it('should accept the request from user',(done)=>{
+    chai.request(server)
+    .patch('/api/v1/auth/sessions/2/accept')
+    .set('Authorization', mentorToken)
+    .end((error, res)=>{
+        res.body.status.should.be.equal(200);
+        res.body.data.sessionId.should.be.equal(2);
+    })
+    done();
+})
+//mentor can not accept a request which does not exist
+it('should not accept a request which does not exist', (done)=>{
+chai.request(server)
+    .patch('/api/v1/auth/sessions/10/accept')
+    .set('Authorization', mentorToken)
+    .end((error, res)=>{
+     res.body.status.should.be.equal(404);
+     res.body.error.should.be.equal('Session request not found');
+     })
+      done();
+      })
+ //you can not accept a request if you are not a mentor
+  it('should not accept a request if you are not a mentor', (done)=>{
+    chai.request(server)
+    .patch('/api/v1/auth/sessions/2/accept')
+    .set('Authorization', userToken)
+    .end((error, res)=>{
+        res.body.status.should.be.equal(403);
+        res.body.message.should.be.equal('Unauthorized');
+    })
+    done();
+})     
 });
