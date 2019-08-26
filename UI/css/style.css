@@ -80,8 +80,8 @@ header a:hover{
 
 /* showcase*/
 #showcase{
- min-height: 400px;
- background: url('../img/mentorPhoto2.png') no-repeat 400px;
+ min-height: 450px;
+ background: url('../img/mentorPhoto3.png') no-repeat center / cover;
 margin-left: -15%;
 }
 
@@ -374,6 +374,39 @@ footer{
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  @media only Screen and (max-width: 496px){
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+
+    #boxes .box {
+      width: 100%;
+    }
+  }
+
+  @media only Screen and (max-width: 741px){
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+
+    #boxes .box {
+      width: 100%;
+    }
+  }
+  @media only Screen and (max-width: 320px){
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+
+    #boxes .box {
+      width: 100%;
+    }
+  }
+  
   /*end of css for user's table */
 
 
