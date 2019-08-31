@@ -2,12 +2,15 @@
 [![Build Status](https://travis-ci.org/ruhimbazabertin/FreeMentor.svg?branch=develop)](https://travis-ci.org/ruhimbazabertin/FreeMentor)
 [![Coverage Status](https://coveralls.io/repos/github/ruhimbazabertin/FreeMentor/badge.svg?branch=develop)](https://coveralls.io/github/ruhimbazabertin/FreeMentor?branch=develop)
 
+Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions.
 
-# Titlte
+# User Interface (UI)
 
-## subTitle
+* HTML
+* CSS
+* JAVASCRIPT
 
-* list of things
+# API ENDPOINTS
 
 
 | Method      | Path                                                           | Description                          |
@@ -20,6 +23,14 @@
 | POST        | /api/v1/sessions                                               | Create a mentorship session request  |
 | PATCH       | /api/v1/sessions/:sessionId/accept                             | A mentor accepts a session request   |
 | PATCH       | /api/v1/sessions/:sessionId/reject                             | A mentor rejects a session request   |
-| GET         | /api/v1/sessions                                               | Get all mentorship session requests  |
-| POST        | /api/v1/sessions/:sessionId/review                             | Review a finished mentorship session |
-| DELETE      | /api/v1/sessions/:sessionId/review                             | Delete inappropriate session review. |
+
+
+
+# TOOLS USED
+
+## LANGUAGE
+
+ JAVASCRIPT 
+ 
+ # SERVER ENVIRONMENT
+
