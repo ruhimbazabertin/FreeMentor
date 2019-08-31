@@ -30,6 +30,19 @@ color: #ffffff;
 padding-top: 30px;
 min-height: 70px;
 border-bottom: #eB491d 3px solid;
+width: 107%;
+}
+@media only screen and (max-width: 320px) {
+  header{
+       width: 137%;
+  }
+
+}
+@media only screen and (max-width: 375px) {
+  header{
+       width: 117%;
+  }
+
 }
 
 header a{
@@ -77,6 +90,7 @@ header a:hover{
     color: #ffaf30;
     /* font-weight: bold; */
 }
+
 
 /* showcase*/
 #showcase{
@@ -220,6 +234,12 @@ ul li:hover {
 footer{
     margin-top: 95px;
 }
+@media only screen and (max-width: 375px) {
+  footer{
+       width: 105%;
+  }
+
+}
 
 
   /*end of css for admin page*/
@@ -350,8 +370,22 @@ footer{
   #request a{
       text-decoration: none;
       color: white;
+
+  }
+  @media only screen and (max-width: 441px) {
+    #request{
+      margin-left: -110px;
+    }
+
+  }
+  @media only screen and (max-width: 320px) {
+    #branding {
+     font-size: 10px;
+    }
+
   }
   /*end of css for mentorshipRequest  */
+
 
 
 
