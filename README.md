@@ -4,13 +4,13 @@
 
 Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions.
 
-# User Interface (UI)
+## User Interface (UI)
 
 * HTML
 * CSS
 * JAVASCRIPT
 
-# API ENDPOINTS
+## API ENDPOINTS
 
 
 | Method      | Path                                                           | Description                          |
@@ -26,41 +26,41 @@ Free Mentors is a social initiative where accomplished professionals become role
 
 
 
-# TOOLS USED
+## TOOLS USED
 
 ## LANGUAGE
 
  JAVASCRIPT 
  
- # SERVER ENVIRONMENT
+ ## SERVER ENVIRONMENT
  
  *NodeJS* (run time Environment for running JS codes)
  
- # FRAMEWORK
+ ## FRAMEWORK
  
  *Express* (used for building fast APIs)
  
- # TESTING FRAMEWORK
+ ## TESTING FRAMEWORK
  
  *Mocha* and *Chai*
  
- # STYLE GUIDE
+ ## STYLE GUIDE
  
  *Airbnb*
  
- # CONTINUOUS INTEGRATION
+ ## CONTINUOUS INTEGRATION
  
  travis ci
  
- # TEST COVERAGE
+ ## TEST COVERAGE
  
  nyc
  
- # GIT BADGE
+ ## GIT BADGE
  
  coveralls
  
- # DEPLOYMENT
+ ## DEPLOYMENT
  
  heroku
  
