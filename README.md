@@ -85,7 +85,7 @@ Free Mentors is a social initiative where accomplished professionals become role
   
   # Run the server
   
-  > npm run dev-start
+  > npm start
   
   # Run the test
   
