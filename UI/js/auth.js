@@ -1,18 +1,18 @@
 const loginButton = document.querySelector('#loginButton');
 const username = document.querySelector('#username');
-const password = document.querySelector('#password');
+const password = document.querySelector('#pass');
 
-loginButton .addEventListener('click', LoginIntoTheSystem);
+const basePath = window.location.href.split('UI')[0];
+const url="UI/pages/admin_dashboard.html";
+loginButton.addEventListener('click', LoginIntoTheSystem);
 
 function LoginIntoTheSystem(){
-    console.log(username.value);
-    if ( username.value == "admin" && password.value == "bertin123"){
-        window.location.href = "FreeMentorpages/admin_dashboard.html";
+    if ( username.value === "admin" && password.value === "bertin123"){
+        
+        window.location.replace = basePath + "UI/pages/admin_dashboard.html";
         }
-        if ( username.value == "mentor" && password.value =="bertin123"){
-        window.location = "..pages/mentor.html";
-        }else{
-            window.location = "..pages/mentors.html";
-        }
+         else{
+             window.location.href = basePath + "UI/pages/mentors.html";
+         }
     } 
 
