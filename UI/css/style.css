@@ -94,8 +94,26 @@ header a:hover{
 .fo{
   border:1px solid red; 
   width: 50%; 
-  margin-left: 30%;
-   color: black
+  margin-left: 20%;
+   color: black;
+   height: 315px;
+  position: absolute;
+  margin-top: -100px;
+}
+.fo form{
+  margin-top: 2%;
+}
+.fol{
+  border:1px solid red; 
+  width: 50%; 
+  margin-left: 20%;
+   color: black;
+   height: 310px;
+  position: absolute;
+  margin-top: -100px;
+}
+.fol form{
+  margin-top: 10%;
 }
 /* end ofcss for login and registration*/
 
@@ -150,6 +168,9 @@ footer{
     color: #ffffff;
     background-color: #3359df;
     text-align: center;
+}
+.requestFooter{
+  margin-top: 68px;
 }
 
 /*End of css for index page */
@@ -234,8 +255,8 @@ ul li:hover {
     font-size: 25px;
     text-align: right;
 }
-footer{
-    margin-top: 152px;
+.loginFooter, .registerFooter{
+    margin-top: 315px;
 }
 @media only screen and (max-width: 375px) {
   footer{
@@ -366,8 +387,6 @@ footer{
     
 }
 
-
-
   /*end of css for viewMentor page*/
 
   /*css for mentorshipRequest page*/
@@ -439,8 +458,25 @@ footer{
   }
   
   /*end of css for user's table */
+
+  /* css for improving user interface design */
 .admin-footer {
   margin-top: 29%;
 }
-
+.footerMentor{
+  margin-top: 2%;
+}
+.mentorFooter{
+  margin-top: 7.9%;
+}
+.foo{
+  color: white;
+}
+.dash{
+  text-decoration: none;color:blue;
+}
+.mentorDec{
+  background-color: red;
+}
+/*end of css */
 
