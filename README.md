@@ -1,6 +1,7 @@
 # FreeMentor
 [![Build Status](https://travis-ci.org/ruhimbazabertin/FreeMentor.svg?branch=develop)](https://travis-ci.org/ruhimbazabertin/FreeMentor)
 [![Coverage Status](https://coveralls.io/repos/github/ruhimbazabertin/FreeMentor/badge.svg?branch=develop)](https://coveralls.io/github/ruhimbazabertin/FreeMentor?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7eb3a0bd6d4a7c9a445c/maintainability)](https://codeclimate.com/github/ruhimbazabertin/FreeMentor/maintainability)
 
 Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions.
 
