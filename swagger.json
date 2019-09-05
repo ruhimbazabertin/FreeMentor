@@ -1,0 +1,403 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "FreeMentor",
+      "description": "TODO: Add Description",
+      "contact": {}
+    },
+    "basePath": "/api/v1/auth/",
+    "securityDefinitions": {},
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/signUp": {
+        "post": {
+          "description": "TODO: Add Description",
+          "summary": "userSignUp",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "SignUpPost",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/userSignUpRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/signIn": {
+        "post": {
+          "description": "TODO: Add Description",
+          "summary": "userSignIn",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "SignInPost",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            },
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/userSignInRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/sessions": {
+        "post": {
+          "description": "TODO: Add Description",
+          "summary": "CreateSession",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "SessionsPost",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            },
+            {
+              "name": "Content-Type",
+              "in": "header",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/CreateSessionRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/sessions/3/accept": {
+        "patch": {
+          "description": "TODO: Add Description",
+          "summary": "metorAcceptRequest",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Sessions3AcceptPatch",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/mentors": {
+        "get": {
+          "description": "TODO: Add Description",
+          "summary": "viewAllMentors",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "MentorsGet",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/user/1": {
+        "patch": {
+          "description": "TODO: Add Description",
+          "summary": "ChangeToMentor",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "User1Patch",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/sessions/2/reject": {
+        "patch": {
+          "description": "TODO: Add Description",
+          "summary": "mentorRejectRequest",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Sessions2RejectPatch",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/mentors/2": {
+        "get": {
+          "description": "TODO: Add Description",
+          "summary": "viewSpecificMentor",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Mentors2Get",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "userSignUpRequest": {
+        "title": "userSignUpRequest",
+        "example": {
+          "firstName": "Kambanda",
+          "lastName": "augstin",
+          "email": "alm@gmail.com",
+          "password": "alyy23",
+          "address": "kigali",
+          "bio": "scientist",
+          "occupation": 123454,
+          "expertise": "sostware architecture",
+          "userType": "user"
+        },
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "bio": {
+            "type": "string"
+          },
+          "occupation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expertise": {
+            "type": "string"
+          },
+          "userType": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "firstName",
+          "lastName",
+          "email",
+          "password",
+          "address",
+          "bio",
+          "occupation",
+          "expertise",
+          "userType"
+        ]
+      },
+      "userSignInRequest": {
+        "title": "userSignInRequest",
+        "example": {
+          "email": "antoine@gmail.com",
+          "password": "antoine123"
+        },
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ]
+      },
+      "CreateSessionRequest": {
+        "title": "CreateSessionRequest",
+        "example": {
+          "mentorId": 2,
+          "questions": 1233
+        },
+        "type": "object",
+        "properties": {
+          "mentorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "questions": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "mentorId",
+          "questions"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }

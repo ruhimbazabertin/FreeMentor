@@ -1,8 +1,10 @@
 import jwt from 'jsonwebtoken';
 
 const auth = (req, res, next) => {
+
+
+  try{
   const bearerHeader = req.headers.authorization;
-  // eslint-disable-next-line valid-typeof
   if (typeof bearerHeader !== undefined) {
     const bearer = bearerHeader.split(' ');
     const bearerToken = bearer[1];
@@ -16,6 +18,13 @@ const auth = (req, res, next) => {
     });
     next();
   }
+
+}catch(Err ){
+  return res.status(404).json({
+    status: 404,
+    error: 'NO token Provided',
+  });
+}
 };
 
 export default auth;
