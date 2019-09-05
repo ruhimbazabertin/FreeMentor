@@ -12,7 +12,7 @@ Free Mentors is a social initiative where accomplished professionals become role
 * JAVASCRIPT
 
 ## UI Link Example
-[foo]: https://ruhimbazabertin.github.io/FreeMentor/UI/index.html
+[gh-pages](https://ruhimbazabertin.github.io/FreeMentor/UI/index.html)
 
 ## API ENDPOINTS
 
