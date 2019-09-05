@@ -1,12 +1,10 @@
-/* eslint-disable no-undef */
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../server';
+import server from '../serve';
 
 chai.use(chaiHttp);
 chai.should();
 
-// eslint-disable-next-line no-undef
 describe('FreeMentor product', () => {
   const adminToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZmlyc3ROYW1lIjoiS2FtYmFuZGEiLCJsYXN0TmFtZSI6ImF1Z3N0aW4iLCJlbWFpbCI6ImFsQGdtYWlsLmNvbSIsImFkZHJlc3MiOiJraWdhbGkiLCJiaW8iOiJzY2llbnRpc3QiLCJvY2N1cGF0aW9uIjoic29mdHdhcmUgZGV2ZWxvcG1lbnQiLCJleHBlcnRpc2UiOiJzb3N0d2FyZSBhcmNoaXRlY3R1cmUiLCJ1c2VyVHlwZSI6ImFkbWluIiwiaWF0IjoxNTY2ODkxMjcwfQ.hQMlpq0wJ7TlAD_uWJeLDVmFFeJySFhOQ9DlHK09vPQ';
   const userToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZmlyc3ROYW1lIjoiS2FtYmFuZGEiLCJsYXN0TmFtZSI6ImF1Z3N0aW4iLCJlbWFpbCI6ImFseW91ZEBnbWFpbC5jb20iLCJhZGRyZXNzIjoia2lnYWxpIiwiYmlvIjoic2NpZW50aXN0Iiwib2NjdXBhdGlvbiI6InNvZnR3YXJlIGRldmVsb3BtZW50IiwiZXhwZXJ0aXNlIjoic29zdHdhcmUgYXJjaGl0ZWN0dXJlIiwidXNlclR5cGUiOiJ1c2VyIiwiaWF0IjoxNTY2ODkxMDQ1fQ.3g7ddRIobDKWNAmZH60as1-y0R3xVRR7UR7TETPG0jc';
@@ -49,7 +47,7 @@ describe('FreeMentor product', () => {
       .post('/api/v1/auth/signUp')
       .send(user)
       .end((error, res) => {
-        res.status.should.be.equal(400);
+        res.status.should.be.equal(409);
         res.should.be.an('object');
       });
     done();
@@ -99,8 +97,8 @@ describe('FreeMentor product', () => {
       .post('/api/v1/auth/signIn')
       .send(user)
       .end((error, res) => {
-        res.body.status.should.be.equal(404);
-        res.body.error.should.be.equal('User not found');
+        res.body.status.should.be.equal(401);
+        res.body.error.should.be.equal('UserName or password not match');
       });
     done();
   });
@@ -113,7 +111,7 @@ describe('FreeMentor product', () => {
       .post('/api/v1/auth/signIn')
       .send(user)
       .end((error, res) => {
-        res.body.status.should.be.equal(404);
+        res.body.status.should.be.equal(401);
         res.body.should.be.an('object');
         res.body.error.should.be.equal('UserName or password not match.');
       });
