@@ -12,7 +12,7 @@ Free Mentors is a social initiative where accomplished professionals become role
 * JAVASCRIPT
 
 ## UI Link Example
-
+[foo]: https://ruhimbazabertin.github.io/FreeMentor/UI/index.html
 
 ## API ENDPOINTS
 
@@ -69,7 +69,7 @@ Free Mentors is a social initiative where accomplished professionals become role
  heroku
  
  ## HEROKU LINK EXAMPLE
- FreeMentor heroku link
+ [foo]: http://freementorcycle10.herokuapp.com
  ## SWAGGER DOCUMENTATION
  API docs
  # Getting started
