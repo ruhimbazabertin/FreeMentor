@@ -14,6 +14,7 @@ body{
     width: 80%;
     margin: auto;
     overflow: hidden;
+    
 }
 
 ul{
@@ -29,7 +30,19 @@ background: #3359df;
 color: #ffffff;
 padding-top: 30px;
 min-height: 70px;
-border-bottom: #eB491d 3px solid;
+width: 100%;
+}
+@media only screen and (max-width: 320px) {
+  header{
+       width: 137%;
+  }
+
+}
+@media only screen and (max-width: 375px) {
+  header{
+       width: 117%;
+  }
+
 }
 
 header a{
@@ -77,6 +90,33 @@ header a:hover{
     color: #ffaf30;
     /* font-weight: bold; */
 }
+/* css for login and registration*/
+.fo{
+  border:1px solid red; 
+  width: 50%; 
+  margin-left: 20%;
+   color: black;
+   height: 315px;
+  position: absolute;
+  margin-top: -100px;
+}
+.fo form{
+  margin-top: 2%;
+}
+.fol{
+  border:1px solid red; 
+  width: 50%; 
+  margin-left: 20%;
+   color: black;
+   height: 310px;
+  position: absolute;
+  margin-top: -100px;
+}
+.fol form{
+  margin-top: 10%;
+}
+/* end ofcss for login and registration*/
+
 
 /* showcase*/
 #showcase{
@@ -124,12 +164,13 @@ margin-left: -15%;
 }
 
 footer{
-    padding: 20px;
-    margin-top: 20px;
+    padding: 10px;
     color: #ffffff;
     background-color: #3359df;
     text-align: center;
-
+}
+.requestFooter{
+  margin-top: 68px;
 }
 
 /*End of css for index page */
@@ -199,8 +240,6 @@ ul li {
 }
 
 ul li:hover {
-
-    background-color: #c0392b;
     color: white;
 }
 
@@ -211,14 +250,19 @@ ul li:hover {
 
 #data{
     height: 200px;
-    background: #c0392b;
     float: left;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     text-align: right;
 }
-footer{
-    margin-top: 95px;
+.loginFooter, .registerFooter{
+    margin-top: 315px;
+}
+@media only screen and (max-width: 375px) {
+  footer{
+       width: 105%;
+  }
+
 }
 
 
@@ -285,21 +329,20 @@ footer{
     opacity: 0;
   }
   h2 {
-    font-size: 32px;
+    font-size: 20px;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #333;
   }
   .pro {
-    font-size: 13px;
+    font-size: 10px;
     color: #00baff;
     letter-spacing: 1px;
-    margin-bottom: 25px
+    margin-bottom: 2px
   }
   p {
     font-size: 16px;
-    line-height: 26px;
-    margin-bottom: 20px;
+    line-height: 25px;
     color: #666;
   }
 
@@ -334,14 +377,15 @@ footer{
 .request a{
     text-decoration: none;
     color: white;
+    font-size: 15px;
+   
 
 }
 
 .request{
     margin-top: -8%;
+    
 }
-
-
 
   /*end of css for viewMentor page*/
 
@@ -350,8 +394,22 @@ footer{
   #request a{
       text-decoration: none;
       color: white;
+
+  }
+  @media only screen and (max-width: 441px) {
+    #request{
+      margin-left: -110px;
+    }
+
+  }
+  @media only screen and (max-width: 320px) {
+    #branding {
+     font-size: 10px;
+    }
+
   }
   /*end of css for mentorshipRequest  */
+
 
 
 
@@ -360,20 +418,12 @@ footer{
   /*css for user's table */
 
   table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 70%;
+  height: 10px;
   }
   
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
+
   
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+ 
 
   @media only Screen and (max-width: 496px){
     .container{
@@ -409,5 +459,24 @@ footer{
   
   /*end of css for user's table */
 
-
+  /* css for improving user interface design */
+.admin-footer {
+  margin-top: 29%;
+}
+.footerMentor{
+  margin-top: 2%;
+}
+.mentorFooter{
+  margin-top: 7.9%;
+}
+.foo{
+  color: white;
+}
+.dash{
+  text-decoration: none;color:blue;
+}
+.mentorDec{
+  background-color: red;
+}
+/*end of css */
 
