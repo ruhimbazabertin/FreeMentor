@@ -20,8 +20,8 @@ const auth = (req, res, next) => {
   }
 
 }catch(Err ){
-  return res.status(404).json({
-    status: 404,
+  return res.status(401).json({
+    status: 401,
     error: 'NO token Provided',
   });
 }
