@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-
 import jwt from 'jsonwebtoken';
 import bcryptjs from 'bcrypt-nodejs';
 import dotenv from 'dotenv';
@@ -19,7 +18,7 @@ class userController {
 
     const idNumber = userModel.length + 1;
     const jwToken = jwt.sign({
-      id: idNumber, firstName, lastName, email, address, bio, occupation, expertise, userType,
+      id: idNumber, email, userType,
     }, process.env.SECRET_KEY);
     const hashedPassword = bcryptjs.hashSync(password);
     const newUser = userSchema.validate({
@@ -29,12 +28,13 @@ class userController {
     if (newUser.error) { return res.status(400).json({ status: 400, error: newUser.error.details[0].message }); }
 
     const user = userModel.find(usr => usr.email === email);
-    if (user) { return res.status(400).json({ status: 400, error: 'email already exist' }); }
+    if (user) { return res.status(409).json({ status: 409, error: 'email already exist, Please Login' }); }
 
     userModel.push(newUser.value);
 
     return res.status(201).json({
       status: 201,
+      message: 'successfully  created ',
       token: jwToken,
       data: newUser.value,
     });
@@ -48,50 +48,50 @@ class userController {
       const verifyPassword = bcryptjs.compareSync(req.body.password, foundUser.password);
       if (verifyPassword) {
         const jwToken = jwt.sign({
-          id: foundUser.id, firstName: foundUser.firstName, lastName: foundUser.lastName, email: foundUser.email, address: foundUser.address, bio: foundUser.bio, occupation: foundUser.occupation, expertise: foundUser.expertise, userType: foundUser.userType,
+          id: foundUser.id, email: foundUser.email, userType: foundUser.userType,
         }, process.env.SECRET_KEY);
         return res.status(200).json({
           status: 200,
           message: `Logged in as ${foundUser.firstName}`,
           data: {
-            firstName: foundUser.firstName, lastName: foundUser.lastName, email: foundUser.email, address: foundUser.address, bio: foundUser.bio, occupation: foundUser.occupation, expertise: foundUser.expertise, userType: foundUser.userType,
+            token: jwToken,
           },
-          token: jwToken,
+
         });
       }
-      return res.status(404).json({
-        status: 404,
+      return res.status(401).json({
+        status: 401,
         error: 'UserName or password not match.',
       });
     }
-    return res.status(404).json({
-      status: 404,
-      error: 'User not found',
+    return res.status(401).json({
+      status: 401,
+      error: 'UserName or password not match',
     });
   }
 
   // View a specific mentor
-  static specificMentor(req, res) {
-    if (req.user.userType === 'user') {
-      const { id } = req.params;
-      const foundUser = userModel.find(user => user.id === parseInt(id) && user.userType === 'mentor');
-      if (foundUser) {
-        return res.status(200).json({
-          status: 200,
-          data: foundUser,
+  // static specificMentor(req, res) {
+  //   if (req.user.userType === 'user') {
+  //     const { id } = req.params;
+  //     const foundUser = userModel.find(user => user.id === parseInt(id) && user.userType === 'mentor');
+  //     if (foundUser) {
+  //       return res.status(200).json({
+  //         status: 200,
+  //         data: foundUser,
 
-        });
-      }
-      return res.status(404).json({
-        status: 404,
-        error: 'Mentor not found',
-      });
-    }
-    return res.status(403).json({
-      status: 403,
-      error: 'Unauthorized',
-    });
-  }
+  //       });
+  //     }
+  //     return res.status(404).json({
+  //       status: 404,
+  //       error: 'Mentor not found',
+  //     });
+  //   }
+  //   return res.status(403).json({
+  //     status: 403,
+  //     error: 'Unauthorized',
+  //   });
+  // }
 
   // Change user to mentor
   static changeToMentor(req, res) {

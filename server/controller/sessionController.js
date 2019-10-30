@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import sessionModel from '../model/session';
 import userModel from '../model/user';

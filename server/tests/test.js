@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../server';
+import server from '../servers';
 
 chai.use(chaiHttp);
 chai.should();
@@ -16,7 +16,7 @@ describe('FreeMentor product', () => {
     const user = {
       firstName: 'kabera',
       lastName: 'Jean',
-      email: 'kaberab@gmail.com',
+      email: 'ruhimbazab@gmail.com',
       password: 'kabera123',
       address: 'kigali',
       bio: 'scientist',
@@ -37,8 +37,8 @@ describe('FreeMentor product', () => {
     const user = {
       firstName: 'kabera',
       lastName: 'Jean',
-      email: 'ruhimbazab@gmail.com',
-      password: 'bertin123',
+      email: 'kaberab@gmail.com',
+      password: 'kabera123',
       address: 'kigali',
       bio: 'scientist',
       occupation: 'software development',
@@ -49,7 +49,7 @@ describe('FreeMentor product', () => {
       .post('/api/v1/auth/signUp')
       .send(user)
       .end((error, res) => {
-        res.status.should.be.equal(400);
+        res.status.should.be.equal(409);
         res.should.be.an('object');
       });
     done();
@@ -99,8 +99,8 @@ describe('FreeMentor product', () => {
       .post('/api/v1/auth/signIn')
       .send(user)
       .end((error, res) => {
-        res.body.status.should.be.equal(404);
-        res.body.error.should.be.equal('User not found');
+        res.body.status.should.be.equal(401);
+        res.body.error.should.be.equal('UserName or password not match');
       });
     done();
   });
@@ -113,7 +113,7 @@ describe('FreeMentor product', () => {
       .post('/api/v1/auth/signIn')
       .send(user)
       .end((error, res) => {
-        res.body.status.should.be.equal(404);
+        res.body.status.should.be.equal(401);
         res.body.should.be.an('object');
         res.body.error.should.be.equal('UserName or password not match.');
       });

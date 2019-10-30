@@ -2,7 +2,6 @@
 import Joi from '@hapi/joi';
 
 const schema = Joi.object().keys({
-  id: Joi.number().required(),
   token: [Joi.string(), Joi.number().required()],
   firstName: Joi.string().regex(/^[a-zA-Z]{3,30}$/).min(3).max(30).required(),
   lastName: Joi.string().regex(/^[a-zA-Z]{3,30}$/).min(3).max(30).required(),
